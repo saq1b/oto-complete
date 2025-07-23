@@ -1,6 +1,35 @@
-# Build Word add-ins using Office Add-ins Development Kit
+# Auto-Complete Add-in for Microsoft Word
 
-Word add-ins are integrations built by third parties into Word by using [Word JavaScript API](https://learn.microsoft.com/en-us/office/dev/add-ins/reference/overview/word-add-ins-reference-overview) and [Office Platform capabilities](https://learn.microsoft.com/en-us/office/dev/add-ins/overview/office-add-ins).
+## Overview
+This project is a Microsoft Word Add-in that provides real-time word suggestions as you type. The add-in dynamically tracks the words typed in the document and displays a dropdown of suggestions based on the current word being typed. It also includes a "Run" button to manually trigger the suggestion functionality.
+
+## Features
+- **Real-Time Suggestions**: Displays word suggestions dynamically while typing.
+- **Dropdown at Cursor Position**: Suggestions appear near the cursor for seamless interaction.
+- **Manual Trigger**: Use the "Run" button to manually fetch suggestions.
+- **Top Suggestions**: Shows the top 5 suggestions based on the prefix of the currently typed word.
+
+## How It Works
+1. **Tracking Words**:
+   - The add-in tracks all words typed in the document using the Word JavaScript API.
+   - Words are stored in a global `Set` to avoid duplicates.
+
+2. **Fetching Suggestions**:
+   - Suggestions are fetched based on the prefix of the currently typed word.
+   - The prefix is extracted dynamically from the text at the cursor position.
+
+3. **Displaying Suggestions**:
+   - A dropdown is displayed near the cursor using the `boundingRect` property of the selection.
+   - Users can click on a suggestion to insert it into the document.
+
+4. **Event Listener**:
+   - A `keyup` event listener dynamically triggers the suggestion functionality while typing.
+
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/auto-complete-v2.git
+```
 
 ## How to run this project
 
